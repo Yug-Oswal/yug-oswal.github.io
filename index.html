@@ -1,477 +1,700 @@
 <!DOCTYPE HTML>
-<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-
-  <title>Yug D Oswal | Portfolio</title>
-  
+<html lang="en">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <title>Yug D Oswal</title>
   <meta name="author" content="Yug D Oswal">
-  <meta name="description" content="I am Yug Oswal, a 3rd year UG CS student at VIT Vellore. I like mechanistic interpretability and the theory of deep learning.">
+  <meta name="description" content="Yug D Oswal — Incoming MSc at Oxford. Research in mechanistic interpretability, AI safety, and theoretical ML.">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="robots" content="index,follow">
-  
-  <link rel="stylesheet" type="text/css" href="stylesheet.css">
-	<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🌐</text></svg>">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap" rel="stylesheet">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🌐</text></svg>">
+
+  <style>
+    :root {
+      --bg: #ffffff;
+      --surface: #f3f0eb;
+      --ink: #1a1814;
+      --ink-mid: #4a4640;
+      --ink-light: #8a847c;
+      --accent: #b85c38;
+      --accent-soft: #e8d5cc;
+      --border: #e2ddd8;
+      --link: #2a5f8f;
+      --serif: 'DM Serif Display', Georgia, serif;
+      --sans: 'DM Sans', system-ui, sans-serif;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      background: var(--bg);
+      color: var(--ink);
+      font-family: var(--sans);
+      font-size: 15px;
+      line-height: 1.65;
+      font-weight: 300;
+    }
+
+    a {
+      color: var(--link);
+      text-decoration: none;
+      border-bottom: 1px solid transparent;
+      transition: border-color 0.2s, color 0.2s;
+    }
+    a:hover {
+      color: var(--accent);
+      border-bottom-color: var(--accent);
+    }
+
+    /* ── News Ticker ── */
+    .ticker-wrap {
+      background: var(--ink);
+      color: #e8e4de;
+      font-size: 12.5px;
+      letter-spacing: 0.02em;
+      overflow: hidden;
+      white-space: nowrap;
+      padding: 7px 0;
+    }
+    .ticker-inner {
+      display: inline-block;
+      animation: ticker 38s linear infinite;
+    }
+    .ticker-inner span {
+      padding: 0 60px;
+      color: var(--accent-soft);
+      font-weight: 300;
+    }
+    .ticker-inner em {
+      font-style: normal;
+      font-weight: 500;
+      color: #fff;
+    }
+    @keyframes ticker {
+      0%   { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
+    }
+
+    /* ── Page shell ── */
+    .page {
+      max-width: 860px;
+      margin: 0 auto;
+      padding: 0 24px 60px;
+    }
+
+    /* ── Header ── */
+    .header {
+      display: grid;
+      grid-template-columns: 1fr 200px;
+      gap: 40px;
+      align-items: start;
+      padding: 52px 0 36px;
+      border-bottom: 1px solid var(--border);
+      margin-bottom: 44px;
+    }
+    .header-photo {
+      width: 100%;
+      border-radius: 4px;
+      filter: saturate(0.85);
+      transition: filter 0.3s;
+    }
+    .header-photo:hover { filter: saturate(1); }
+
+    h1 {
+      font-family: var(--serif);
+      font-size: 2.6rem;
+      font-weight: 400;
+      letter-spacing: -0.01em;
+      line-height: 1.15;
+      margin-bottom: 6px;
+    }
+    .tagline {
+      font-size: 13.5px;
+      color: var(--accent);
+      font-weight: 500;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      margin-bottom: 18px;
+    }
+    .bio { color: var(--ink-mid); margin-bottom: 16px; }
+    .bio strong { color: var(--ink); font-weight: 500; }
+
+    .links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px 0;
+      font-size: 13px;
+      margin-top: 20px;
+    }
+    .links a {
+      border: 1px solid var(--border);
+      border-radius: 3px;
+      padding: 4px 11px;
+      color: var(--ink-mid);
+      margin-right: 6px;
+      margin-bottom: 4px;
+      transition: background 0.2s, color 0.2s, border-color 0.2s;
+    }
+    .links a:hover {
+      background: var(--ink);
+      color: var(--bg);
+      border-color: var(--ink);
+      border-bottom-color: var(--ink);
+    }
+
+    /* ── Section headings ── */
+    h2 {
+      font-family: var(--serif);
+      font-size: 1.55rem;
+      font-weight: 400;
+      color: var(--ink);
+      margin: 52px 0 22px;
+      padding-bottom: 10px;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      align-items: baseline;
+      gap: 12px;
+    }
+    h2 .section-num {
+      font-family: var(--sans);
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      color: var(--accent);
+      text-transform: uppercase;
+    }
+
+    /* ── News / Updates ── */
+    .news-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+    .news-list li {
+      display: grid;
+      grid-template-columns: 100px 1fr;
+      gap: 0 20px;
+      font-size: 14px;
+      color: var(--ink-mid);
+      padding-bottom: 10px;
+      border-bottom: 1px dashed var(--border);
+    }
+    .news-list li:last-child { border-bottom: none; }
+    .news-date {
+      font-size: 12px;
+      color: var(--ink-light);
+      font-weight: 400;
+      padding-top: 2px;
+      letter-spacing: 0.02em;
+    }
+    .news-list strong { color: var(--ink); font-weight: 500; }
+    .news-list .badge {
+      display: inline-block;
+      font-size: 10.5px;
+      font-weight: 500;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      padding: 1px 7px;
+      border-radius: 2px;
+      margin-left: 6px;
+      vertical-align: middle;
+    }
+    .badge-venue { background: var(--accent-soft); color: var(--accent); }
+    .badge-award { background: #d4edda; color: #2d6a4f; }
+
+    /* ── Paper / Experience cards ── */
+    .card {
+      display: grid;
+      grid-template-columns: 140px 1fr;
+      gap: 24px;
+      padding: 22px 0;
+      border-bottom: 1px solid var(--border);
+      animation: fadeUp 0.4s ease both;
+    }
+    .card:last-child { border-bottom: none; }
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(8px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    .card-thumb {
+      width: 140px;
+      height: 95px;
+      object-fit: cover;
+      border-radius: 3px;
+      background: var(--surface);
+      filter: saturate(0.7);
+      transition: filter 0.3s;
+      flex-shrink: 0;
+    }
+    .card:hover .card-thumb { filter: saturate(1); }
+    .card-thumb-placeholder {
+      width: 140px;
+      height: 95px;
+      background: var(--surface);
+      border-radius: 3px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 28px;
+      flex-shrink: 0;
+    }
+
+    .card-body { display: flex; flex-direction: column; gap: 5px; }
+    .card-title {
+      font-family: var(--serif);
+      font-size: 1.05rem;
+      font-weight: 400;
+      color: var(--ink);
+      line-height: 1.3;
+    }
+    .card-title a { color: inherit; border-bottom: none; }
+    .card-title a:hover { color: var(--accent); border-bottom: none; }
+    .card-meta {
+      font-size: 13px;
+      color: var(--ink-light);
+    }
+    .card-meta strong { color: var(--ink-mid); font-weight: 500; }
+    .card-venue {
+      font-size: 12.5px;
+      font-weight: 500;
+      color: var(--accent);
+      letter-spacing: 0.02em;
+    }
+    .card-desc {
+      font-size: 13.5px;
+      color: var(--ink-mid);
+      line-height: 1.6;
+    }
+    .card-links {
+      display: flex;
+      gap: 10px;
+      font-size: 12.5px;
+      margin-top: 2px;
+    }
+    .card-links a {
+      color: var(--link);
+      border-bottom: none;
+      text-decoration: underline;
+      text-underline-offset: 2px;
+      text-decoration-color: var(--border);
+    }
+    .card-links a:hover {
+      color: var(--accent);
+      text-decoration-color: var(--accent);
+      border-bottom: none;
+    }
+
+    /* ── Education ── */
+    .edu-grid {
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+    }
+    .edu-row {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 16px;
+      padding: 16px 0;
+      border-bottom: 1px solid var(--border);
+      align-items: start;
+    }
+    .edu-row:last-child { border-bottom: none; }
+    .edu-inst {
+      font-weight: 500;
+      color: var(--ink);
+      font-size: 15px;
+    }
+    .edu-degree { font-size: 13.5px; color: var(--ink-mid); margin-top: 2px; }
+    .edu-detail { font-size: 12.5px; color: var(--ink-light); margin-top: 2px; }
+    .edu-date {
+      font-size: 12.5px;
+      color: var(--ink-light);
+      white-space: nowrap;
+      padding-top: 2px;
+    }
+    .incoming-badge {
+      display: inline-block;
+      background: var(--accent);
+      color: white;
+      font-size: 10px;
+      font-weight: 500;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      padding: 2px 7px;
+      border-radius: 2px;
+      margin-left: 8px;
+      vertical-align: middle;
+    }
+
+    /* ── Skills ── */
+    .skills-block {
+      font-size: 13.5px;
+      color: var(--ink-mid);
+      line-height: 1.9;
+    }
+    .skills-block strong { color: var(--ink); font-weight: 500; }
+
+    /* ── Blog ── */
+    .blog-list { list-style: none; display: flex; flex-direction: column; gap: 14px; }
+    .blog-list li {
+      padding-bottom: 14px;
+      border-bottom: 1px dashed var(--border);
+    }
+    .blog-list li:last-child { border-bottom: none; }
+    .blog-title { font-size: 14.5px; font-weight: 400; }
+    .blog-meta { font-size: 12px; color: var(--ink-light); margin-top: 3px; }
+
+    /* ── Footer ── */
+    footer {
+      margin-top: 60px;
+      padding-top: 20px;
+      border-top: 1px solid var(--border);
+      font-size: 12px;
+      color: var(--ink-light);
+      text-align: center;
+    }
+
+    /* ── Responsive ── */
+    @media (max-width: 620px) {
+      .header { grid-template-columns: 1fr; }
+      .header-photo { width: 120px; border-radius: 50%; }
+      .card { grid-template-columns: 1fr; }
+      .card-thumb, .card-thumb-placeholder { width: 100%; height: 140px; }
+      .news-list li { grid-template-columns: 1fr; gap: 2px; }
+    }
+  </style>
 </head>
-
 <body>
-  <table style="width:100%;max-width:800px;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;"><tbody>
-    <tr style="padding:0px">
-      <td style="padding:0px">
-        <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;"><tbody>
-          <tr style="padding:0px">
-            <td style="padding:2.5%;width:63%;vertical-align:middle">
-	      <h1 style="text-align:center">Yug D Oswal</h1>
-	      <p>I'm a SPAR Fellow and final year CS undergrad at VIT Vellore, India. I'm most recently working on:
-          <ul>
-            <li>Mechanistic interpretability (first year dream come true :) and AI safety with <a href="https://www.linkedin.com/in/shivam-raval-27820484">Shivam Raval</a>, Harvard University, as part of the SPAR Fall 2025 fellowship.</li>
-            <li>Update: I got selected among top 10 of 90+ teams in SPAR to present to leading AI safety researchers and organizations like Constellation, UK AISI, and BlueDot Impact!</li>
-            <li>Creating the perfect dataset (note: not synthetic data but research in information theory and generative models) with <a href="https://www.ravid-shwartz-ziv.com/">Prof. Ravid Shwartz-Ziv</a> from NYU. <br>Fun Fact: He was Yann LeCun's postdoc (fanboy moment :)).</li>
-            <li>Continuing ongoing work on statistical interventions for CoT alignment with <a href="https://jd92.wang/">Prof. Jindong Wang</a> and <a href="https://hhhhhhao.github.io/">Hao Chen</a>.</li>
-          </ul>
-          </p>
-          <p>My current research is around interpretability, safety, and catastrophic inheritance. I've previously worked (and continue) in theoretical/empirical ML and representation learning.<br><br> Please say hi! I love connecting with different people.
-              </p>
-	      <p>I'm planning on pursuing a MS (PhD subject to planning). Currently (still) working towards the best 'me' I could think of.
-              </p>
-              <p style="text-align:center">
-                <a href="mailto:yoswal071@gmail.com">Email</a> &nbsp/&nbsp
-                <a href="data/resume.pdf">Resume</a> &nbsp/&nbsp
-                <a href="https://scholar.google.com/citations?user=e8SUSSEAAAAJ&hl=en">Google Scholar</a> &nbsp/&nbsp
-                <a href="#blog">Blog</a> &nbsp/&nbsp
-                <a href="https://www.linkedin.com/in/yugdoswal">LinkedIn</a> &nbsp/&nbsp
-                <a href="https://github.com/yug-oswal">GitHub</a>
-              </p>
-            </td>
-            <td style="padding:2.5%;width:40%;max-width:40%">
-              <a href="images/Yug_Oswal.jpg"><img style="width:100%;max-width:100%" alt="profile photo" src="images/Yug_Oswal.jpg" class="hoverZoomLink"></a>
-            </td>
-          </tr>
-        </tbody></table>
 
-                <!-- Research Experience -->
-        <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;"><tbody>
-          <tr>
-            <td style="padding:20px;width:100%;vertical-align:middle">
-              <h2>Research Experience</h2>
-            </td>
-          </tr>
-        </tbody></table>
+  <!-- Ticker -->
+  <!-- <div class="ticker-wrap" aria-hidden="true">
+    <div class="ticker-inner">
+      <span>🎓 <em>Incoming MSc, University of Oxford</em> · Advanced Computer Science · Oct 2026</span>
+      <span>📄 <em>ICLR DeLTa Workshop</em> · "Beyond the Loss Curve" · Accepted 2026</span>
+      <span>🏆 <em>Top 10 of 90+ teams</em> · SPAR Fall 2025 · presented to Constellation, UK AISI, BlueDot Impact</span>
+      <span>⚙️ Working on <em>information theory</em>, theoretical ML, and scaling laws</span>
+      <span>🎓 <em>Incoming MSc, University of Oxford</em> · Advanced Computer Science · Oct 2026</span>
+      <span>📄 <em>ICLR DeLTa Workshop</em> · "Beyond the Loss Curve" · Accepted 2026</span>
+      <span>🏆 <em>Top 10 of 90+ teams</em> · SPAR Fall 2025 · presented to Constellation, UK AISI, BlueDot Impact</span>
+      <span>⚙️ Working on <em>information theory</em>, theoretical ML, and scaling laws</span>
+    </div>
+  </div> -->
 
-        <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;"><tbody>
+  <div class="page">
 
-          <!-- SPAR Fellowship -->
-          <tr>
-            <td style="padding:20px;width:25%;vertical-align:middle">
-              <div class="one">
-                <!-- Reuse your existing SPAR image -->
-                <img src='images/spar_img.jpg' width="160">
-              </div>
-            </td>
-            <td style="padding:20px;width:75%;vertical-align:middle">
-              <a href="https://sparai.org/">
-                Supervised Program for Alignment Research with Shivam Raval, Harvard University
-              </a>
-              <br>
-              <strong>Research Fellow</strong> &nbsp;|&nbsp; Sep. 2025 – Present
-              <br>
-              <a href="https://drive.google.com/file/d/1QW5LjDiMQZohOkbeWNCljUTr-FVSx9KK/view?usp=sharing">Offer</a>
-              <p></p>
-              <p>
-                Funded research in mechanistic interpretability and AI safety. Designing chain-of-thought (CoT)
-                control methods, building steering-vector mixtures to induce complex LLM behaviors, and stress-testing
-                CoT monitors and reward-hacking defenses.
-              </p>
-            </td>
-          </tr>
+    <!-- ── Header ── -->
+    <div class="header">
+      <div>
+        <p class="tagline">Theoretical ML/DL · Interpretability · Information Theory</p>
+        <h1>Yug D Oswal</h1>
+        <p class="bio">
+          I'm a final-year CS undergrad at VIT Vellore and an <strong>incoming MSc student at the University of Oxford</strong> (Advanced Computer Science, Oct 2026).
+          My research sits at the intersection of <strong>theoretical ML/DL</strong>, mechanistic interpretability, and information theory - broadly, I'm interested in understanding mechanisms underlying learning and developing more capable/reliable intelligence.
+        </p>
+        <p class="bio">
+          Currently I'm working with the <strong>Torr Vision Group</strong> and <strong>OATML</strong> groups at Oxford, headed by <a href="https://www.robots.ox.ac.uk/~phst/">Prof. Philip Torr</a> and <a href="https://www.cs.ox.ac.uk/people/yarin.gal/website/">Prof. Yarin Gal</a> respectively. 
+          I'm also working with <a href="https://www.ravid-shwartz-ziv.com/">Prof. Ravid Shwartz-Ziv</a> at NYU. I'm always happy to connect, please feel free to reach out!
+        </p>
+        <div class="links">
+          <a href="mailto:yoswal071@gmail.com">Email</a>
+          <a href="data/resume.pdf">CV / Résumé</a>
+          <a href="https://scholar.google.com/citations?user=e8SUSSEAAAAJ&hl=en">Scholar</a>
+          <a href="https://www.linkedin.com/in/yugdoswal">LinkedIn</a>
+          <a href="https://github.com/Yug-Oswal">GitHub</a>
+          <a href="#blog">Blog</a>
+        </div>
+      </div>
+      <div>
+        <img class="header-photo" src="images/Yug_Oswal.jpg" alt="Photo of Yug D Oswal">
+      </div>
+    </div>
 
-          <!-- NYU – Ravid Shwartz-Ziv -->
-          <tr>
-            <td style="padding:20px;width:25%;vertical-align:middle">
-              <div class="one">
-                <img src='images/nyu.png' width="160">
-              </div>
-            </td>
-            <td style="padding:20px;width:75%;vertical-align:middle">
-              <a href="https://www.nyu.edu/">
-                New York University, with Prof. Ravid Shwartz-Ziv
-              </a>
-              <br>
-              <strong>Research Intern</strong> &nbsp;|&nbsp; Sep. 2025 – Present
-              <p></p>
-              <p>
-                Building a highly realistic tractable “perfect” dataset using normalizing flow models such as TarFlow.
-                Designing oracle-style queries for posteriors, marginals, and log-probabilities to enable ground-truth
-                evaluation of Bayesian, VIB, and related learning methods, and analyzing aleatoric/epistemic uncertainty.
-              </p>
-            </td>
-          </tr>
+    <!-- ── Education ── -->
+    <h2><span class="section-num">00</span> Education</h2>
+    <div class="edu-grid">
+      <div class="edu-row">
+        <div>
+          <div class="edu-inst">University of Oxford <span class="incoming-badge">Incoming</span></div>
+          <div class="edu-degree">MSc in Advanced Computer Science</div>
+          <div class="edu-detail">Oxford, UK</div>
+        </div>
+        <div class="edu-date">Oct 2026 – Oct 2027</div>
+      </div>
+      <div class="edu-row">
+        <div>
+          <div class="edu-inst">VIT Vellore</div>
+          <div class="edu-degree">BTech in Computer Science and Engineering</div>
+          <div class="edu-detail">CGPA: 9.51 / 10 &nbsp;·&nbsp; Vellore, India</div>
+        </div>
+        <div class="edu-date">Sep 2022 – Jul 2026</div>
+      </div>
+    </div>
 
-          <!-- William & Mary – Jindong Wang -->
-          <tr>
-            <td style="padding:20px;width:25%;vertical-align:middle">
-              <div class="one">
-                <img src='images/wnm.png' width="160">
-              </div>
-            </td>
-            <td style="padding:20px;width:75%;vertical-align:middle">
-              <a href="https://www.wm.edu/">
-                William &amp; Mary, with Prof. Jindong Wang
-              </a>
-              <br>
-              <strong>Research Intern</strong> &nbsp;|&nbsp; Apr. 2025 – Present
-              <p></p>
-              <p>
-                Formulating conditioning of LLM reasoning on outputs via a KL-divergence-based self-alignment framework
-                for chain-of-thought. Achieved substantial gains on the Bias Benchmark for QA, set up bias-monitoring
-                pipelines, and integrated causal activation patching to trace how biased reasoning influences model outputs.
-              </p>
-            </td>
-          </tr>
+    <!-- ── News ── -->
+    <h2><span class="section-num">01</span> News & Updates</h2>
+    <ul class="news-list">
+      <li>
+        <span class="news-date">Apr 2026</span>
+        <span>Invited to <strong>Y Combinator Startup School India 2026</strong>, among the <span class="badge badge-award">Top 2000</span> builders, founders, and engineers in India.</span>
+      </li>
+      <li>
+        <span class="news-date">Mar 2026</span>
+        <span>Paper <strong>"Beyond the Loss Curve"</strong> accepted to the <span class="badge badge-venue">ICLR DeLTa Workshop</span>.</span>
+      </li>
+      <li>
+        <span class="news-date">Mar 2026</span>
+        <span>Admitted to the <strong>MSc Advanced Computer Science</strong> program at the <strong>University of Oxford</strong>, starting Oct 2026.</span>
+      </li>
+      <li>
+        <span class="news-date">Jan 2026</span>
+        <span>Selected <span class="badge badge-award">Top 10 / 90+ teams</span> at SPAR Fall 2025: presented lightning talk on causal reward-hacking induction to researchers at Constellation, UK AISI, and BlueDot Impact.</span>
+      </li>
+      <li>
+        <span class="news-date">Sep 2025</span>
+        <span>Joined <strong>NYU</strong> as a research intern with <a href="https://www.ravid-shwartz-ziv.com/">Prof. Ravid Shwartz-Ziv</a> (currently at Meta) on tractable-distribution datasets and uncertainty decomposition.</span>
+      </li>
+      <li>
+        <span class="news-date">Sep 2025</span>
+        <span>Started as a <strong>SPAR Research Fellow</strong> (Supervised Program for Alignment Research) with Shivam Raval, Harvard University.</span>
+      </li>
+    </ul>
 
-        </tbody></table>
+    <!-- ── Papers ── -->
+    <h2><span class="section-num">02</span> Papers &amp; Preprints</h2>
 
-        <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;"><tbody>
-          <tr>
-            <td style="padding:20px;width:100%;vertical-align:middle">
-              <h2>Pre-prints and Research Papers</h2>
-            </td>
-          </tr>
-        </tbody></table>
-          <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;"><tbody>
+    <div class="card">
+      <img class="card-thumb" src="images/loss_curve.png" alt="Beyond the Loss Curve" onerror="this.style.display='none'">
+      <div class="card-body">
+        <div class="card-title">
+          <a href="https://arxiv.org/abs/2602.00315">Beyond the Loss Curve: Scaling Laws, Active Learning, and the Limits of Learning</a>
+        </div>
+        <div class="card-meta"><strong>Yug D Oswal</strong>, PI: <a href="https://www.ravid-shwartz-ziv.com/">Ravid Shwartz-Ziv</a></div>
+        <div class="card-venue">✦ ICLR DeLTa Workshop 2026</div>
+        <div class="card-desc">
+          Constructed the first large-scale tractable-distribution dataset for ImageNet-64 enabling exact uncertainty decomposition. Discovered epistemic scaling power-laws and a constant aleatoric floor. Demonstrated that epistemic-based active learning outperforms entropy-based sampling, requiring 47.8% fewer samples for equivalent performance.
+        </div>
+        <div class="card-links"><a href="https://openreview.net/forum?id=6AYZpCsddJ">OpenReview</a></div>
+      </div>
+    </div>
 
-          <!-- Loss Switching paper -->
-          <tr>
-            <td style="padding:20px;width:25%;vertical-align:middle">
-              <div class="one">
-                <img src='images/alternate_loss.png' width="160">
-              </div>
-            </td>
-            <td style="padding:20px;width:75%;vertical-align:middle">
-              <!-- Keep the same arXiv link if it’s the same preprint -->
-              <a href="https://arxiv.org/abs/2303.09935">
-                <papertitle>Loss Switching, Novel Classification and Regression Losses</papertitle>
-              </a>
-              <br>
-              <strong>Yug D Oswal</strong>,
-              PI: <a href="https://www.linkedin.com/in/m-mithra/">Mathew Mithra Noel</a>
-              <br>
-              Submitted to Expert Systems with Applications, 2025
-              <p></p>
-              <p>
-                Propose a gradient-based loss scheduling method, <em>loss switching</em>, paired with statistically optimized
-                classification and regression losses. Achieves ≥ 3% top-1 ImageNet gain via tuned loss schedules and improves
-                RMSE by ≥ 1.4% across four regression benchmarks under asymmetric outlier shifts.
-              </p>
-            </td>
-          </tr>
+    <div class="card">
+      <img class="card-thumb" src="images/alternate_loss.png" alt="Loss Switching" onerror="this.style.display='none'">
+      <div class="card-body">
+        <div class="card-title">
+          <a href="https://arxiv.org/abs/2303.09935">Loss Switching, Novel Classification and Regression Losses</a>
+        </div>
+        <div class="card-meta"><strong>Yug D Oswal</strong>, PI: <a href="https://www.linkedin.com/in/m-mithra/">Mathew Mithra Noel</a></div>
+        <div class="card-venue">Under Review at Applied Soft Computing, 2025</div>
+        <div class="card-desc">
+          Gradient-based loss scheduling method (<em>loss switching</em>) paired with statistically optimized classification and regression losses. Achieves ≥ 3% top-1 ImageNet gain and ≥ 1.4% RMSE improvement across four regression benchmarks under asymmetric outlier shifts.
+        </div>
+        <div class="card-links"><a href="https://arxiv.org/abs/2303.09935">arXiv</a></div>
+      </div>
+    </div>
 
-          <!-- Cone-Class paper -->
-          <tr>
-            <td style="padding:20px;width:25%;vertical-align:middle">
-              <div class="one">
-                <img src='images/cone.png' width="160">
-              </div>
-            </td>
-            <td style="padding:20px;width:75%;vertical-align:middle">
-              <a href="https://arxiv.org/abs/2405.04459">
-                <papertitle>Cone-Class of Activations: More Learning, Less Neurons</papertitle>
-              </a>
-              <br>
-              <strong>Yug D Oswal</strong>,
-              PI: <a href="https://www.linkedin.com/in/m-mithra/">Mathew Mithra Noel</a>
-              <br>
-              arXiv, 2024
-              <p></p>
-              <p>
-                Introduce cone activations that compute hyperstrip representations, making them effective classification
-                heads. Show ≥ 4.6% accuracy gain on ImageNet with 46.4% parameter reduction in VGG19, and characterize
-                efficiency–accuracy trade-offs where ≤ 6× neuron compression yields only ≈ 2% drop for cone (vs. ≈ 8% for ReLU).
-              </p>
-            </td>
-          </tr>
+    <div class="card">
+      <img class="card-thumb" src="images/cone.png" alt="Cone-Class" onerror="this.style.display='none'">
+      <div class="card-body">
+        <div class="card-title">
+          <a href="https://arxiv.org/abs/2405.04459">A Significantly Better Class of Activation Functions Than ReLU-Like Functions</a>
+        </div>
+        <div class="card-meta"><strong>Yug D Oswal</strong>, PI: <a href="https://www.linkedin.com/in/m-mithra/">Mathew Mithra Noel</a></div>
+        <div class="card-venue">arXiv, 2024</div>
+        <div class="card-desc">
+          Cone activations compute hyperstrip representations, making them effective classification heads. ≥ 4.6% accuracy gain on ImageNet with 46.4% parameter reduction in VGG19. ≤ 6× neuron compression yields only ≈ 2% drop for cone vs. ≈ 8% for ReLU.
+        </div>
+        <div class="card-links"><a href="https://arxiv.org/abs/2405.04459">arXiv</a></div>
+      </div>
+    </div>
 
-          <!-- QNN / RP-QNN paper -->
-          <tr>
-            <td style="padding:20px;width:25%;vertical-align:middle">
-              <div class="one">
-                <img src='images/qnnCluster.png' width="160">
-              </div>
-            </td>
-            <td style="padding:20px;width:75%;vertical-align:middle">
-              <a href="https://arxiv.org/abs/2310.02901">
-                <papertitle>Computationally Efficient Quadratic Neural Networks</papertitle>
-              </a>
-              <br>
-              <strong>Yug D Oswal</strong>,
-              PI: <a href="https://www.linkedin.com/in/m-mithra/">Mathew Mithra Noel</a>
-              <br>
-              arXiv, 2023–2025
-              <p></p>
-              <p>
-                Resolve the core computational bottleneck in quadratic neural networks by designing vectorized forward
-                and backward matrix algorithms for efficient parallelism. Develop O(n²) reduced-parameter RP-QNN variants
-                and systematically study expressiveness–efficiency trade-offs between RP-QNNs and fully parameterized QNNs.
-              </p>
-            </td>
-          </tr>
+    <div class="card">
+      <img class="card-thumb" src="images/qnnCluster.png" alt="QNN" onerror="this.style.display='none'">
+      <div class="card-body">
+        <div class="card-title">
+          <a href="https://arxiv.org/abs/2310.02901">Computationally Efficient Quadratic Neural Networks</a>
+        </div>
+        <div class="card-meta"><strong>Yug D Oswal</strong>, PI: <a href="https://www.linkedin.com/in/m-mithra/">Mathew Mithra Noel</a></div>
+        <div class="card-venue">arXiv, 2023–2025</div>
+        <div class="card-desc">
+          Vectorized forward/backward matrix algorithms resolving the core computational bottleneck in QNNs. O(n²) reduced-parameter RP-QNN variants with systematic expressiveness–efficiency ablations.
+        </div>
+        <div class="card-links"><a href="https://arxiv.org/abs/2310.02901">arXiv</a></div>
+      </div>
+    </div>
 
-        </tbody></table>
+    <!-- ── Research Experience ── -->
+    <h2><span class="section-num">03</span> Research Experience</h2>
 
-                <!-- Professional Experience -->
-        <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;"><tbody>
-          <tr>
-            <td style="padding:20px;width:100%;vertical-align:middle">
-              <h2>Professional Experience</h2>
-            </td>
-          </tr>
-        </tbody></table>
+    <div class="card">
+      <img class="card-thumb" src="images/spar_img.jpg" alt="SPAR" onerror="this.style.display='none'">
+      <div class="card-body">
+        <div class="card-title">
+          <a href="https://sparai.org/">Supervised Program for Alignment Research (SPAR)</a>
+        </div>
+        <div class="card-meta"><strong>Research Fellow</strong> · Sep 2025 – Jan 2026 · with <a href="https://www.linkedin.com/in/shivam-raval-27820484">Shivam Raval</a>, Harvard University · Remote</div>
+        <div class="card-venue">Mechanistic Interpretability · AI Safety · Reward Hacking</div>
+        <div class="card-desc">
+          Led funded research on causal induction of reward hacking in LLMs via activation steering.
+          <br>Selected among <strong>top 10 of 90+ teams</strong> to present to AI safety orgs including Constellation, UK AISI, and BlueDot Impact. EMNLP '26 submission in preparation.
+        </div>
+        <div class="card-links">
+          <a href="https://sparai.org/certificates/fa25/recmFqIZc8IU8ZJVl">Fellowship Certificate</a>
+          <a href="https://github.com/Yug-Oswal/reward-hacking">GitHub</a>
+        </div>
+      </div>
+    </div>
 
-        <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;"><tbody>
-				
-          <!-- Bharat Dynamics Limited -->
-          <tr>
-            <td style="padding:20px;width:25%;vertical-align:middle">
-              <div class="one">
-                <img src='images/BDL_SVG.png' width="160">
-              </div>
-            </td>
-            <td style="padding:20px;width:75%;vertical-align:middle">
-              <a href="https://bdl-india.in/">
-                Bharat Dynamics Limited - Ministry of Defence, India
-              </a>
-              <br>
-              <strong>AI/ML Engineer Intern</strong> &nbsp;|&nbsp; May 2025 – Jun. 2025
-              <br>
-	      <a href="https://drive.google.com/file/d/1S2LFCNl3lMZzfJE1oxqQFOokDUaMXzWk/view?usp=drive_link">Certificate</a>
-              <p></p>
-              <p>
-                Developed the primary end-to-end prototype of an anti-UAV surveillance system using real-time object
-                detection and multi-object tracking on RGB and thermal feeds. Built a secure web-based monitoring interface
-                and engineered a unique migratable deployment setup for air-gapped defense environments.
-              </p>
-            </td>
-          </tr>
+    <div class="card">
+      <img class="card-thumb" src="images/nyu.png" alt="NYU" onerror="this.style.display='none'">
+      <div class="card-body">
+        <div class="card-title">
+          <a href="https://www.nyu.edu/">New York University</a>
+        </div>
+        <div class="card-meta"><strong>Research Intern</strong> · Sep 2025 – Present · with <a href="https://www.ravid-shwartz-ziv.com/">Prof. Ravid Shwartz-Ziv</a> · Remote</div>
+        <div class="card-venue">Uncertainty Decomposition · Normalizing Flows · Deep Learning · Scaling Laws · Active Learning</div>
+        <div class="card-desc">
+          Led experimental pipeline for the first large-scale tractable-distribution dataset at ImageNet-scale with exact posterior, marginal, and KL oracle queries. 
+          <br>Discovered epistemic scaling laws, theoretical limits of learning, and improved active learning policies. Results led to a paper accepted at the ICLR DeLTa Workshop 2026.
+        </div>
+      </div>
+    </div>
 
-          <!-- WebTiga / Synergetics -->
-          <tr>
-            <td style="padding:20px;width:25%;vertical-align:middle">
-              <div class="one">
-                <img src='images/webtiga.png' width="160">
-              </div>
-            </td>
-            <td style="padding:20px;width:75%;vertical-align:middle">
-              <a href="data/6_860_Project.pdf">
-                <papertitle>WebTiga (renamed Synergetics AI)</papertitle>
-              </a>
-              <br>
-              <strong>Machine Learning Engineer</strong> &nbsp;|&nbsp; Jan. 2025 – May 2025
-              <br>
-	      <a href="https://drive.google.com/file/d/15I_K-Twv-OV2pmLRK0HBaDwup5Z8D6CZ/view?usp=drive_link">Certificate</a>
-              <p></p>
-              <p>
-                Referred by Raghu Bala (MIT AI Course Facilitator & Founder). Designed and deployed production-grade RAG and
-                agentic LLM pipelines with tool use, guardrails, memory, and context-aware chat. Built LLM systems for
-                humanoid speech-capable therapeutic agents and delivered classical ML proof-of-concepts for insurance
-                sector clients.
-              </p>
-            </td>
-          </tr>
+    <div class="card">
+      <img class="card-thumb" src="images/wnm.png" alt="William & Mary" onerror="this.style.display='none'">
+      <div class="card-body">
+        <div class="card-title">
+          <a href="https://www.wm.edu/">William &amp; Mary</a>
+        </div>
+        <div class="card-meta"><strong>Research Intern</strong> · Apr 2025 – Dec 2025 · with <a href="https://jd92.wang/">Prof. Jindong Wang</a> &amp; <a href="https://hhhhhhao.github.io/">Hao Chen</a> · Remote</div>
+        <div class="card-venue">CoT Alignment · Statistical Interventions · Causal Tracing · Cognitive Theory</div>
+        <div class="card-desc">
+          Formulated conditioning of LLM reasoning on outputs via a KL-divergence-based self-alignment framework for chain-of-thought. Achieved 25–35% task-accuracy gain and reduced bias over base DeepSeek Qwen 1.5B on the Bias Benchmark for QA. Integrated causal activation patching to trace how biased reasoning propagates into model outputs.
+        </div>
+        <div class="card-links">
+          <a href="https://github.com/Yug-Oswal/conditioning-reasoning">GitHub</a>
+        </div>
+      </div>
+    </div>
 
-          <!-- University of Auckland + Signal -->
-          <tr>
-            <td style="padding:20px;width:25%;vertical-align:middle">
-              <div class="one">
-                <img src='images/uoa.png' width="160">
-              </div>
-            </td>
-            <td style="padding:20px;width:75%;vertical-align:middle">
-              <a href="https://www.auckland.ac.nz/en.html">University of Auckland, New Zealand</a> | 
-              <a href="https://www.getsignal.info/">Signal Corporation Ltd</a>
-              <br>
-              <strong>Project Lead (Applied ML)</strong> &nbsp;|&nbsp; Aug. 2024 – Dec. 2024
-              <br>
-	      <a href="https://drive.google.com/file/d/1LjsIWPzUAN4z10Zb_enO-hQEkUwhp73J/view?usp=drive_link">Certificate</a>
-              <p></p>
-              <p>
-                Led an international applied ML team in collaboration with academia and industry. Designed and deployed
-                pipelines for Named Entity Recognition, geocoding, and incremental clustering to resolve five real-world
-                intelligence automation problems for Signal Corp Ltd.
-              </p>
-            </td>
-          </tr>
+    <!-- ── Professional Experience ── -->
+    <h2><span class="section-num">04</span> Professional Experience</h2>
 
-        </tbody></table>
+    <div class="card">
+      <img class="card-thumb" src="images/BDL_SVG.png" alt="BDL" onerror="this.style.display='none'">
+      <div class="card-body">
+        <div class="card-title">
+          <a href="https://bdl-india.in/">Bharat Dynamics Limited - Ministry of Defence, India</a>
+        </div>
+        <div class="card-meta"><strong>AI/ML Engineer Intern</strong> · Aug 2024 – Oct 2024 · Hyderabad</div>
+        <div class="card-desc">
+          Curated 85,000-sample IR-optical hybrid UAV dataset. Built first prototype multimodal thermal-optical anti-UAV surveillance system (YOLOv8-based), successfully tested in 4 field scenarios. Engineered novel containerized client-server deployment on air-gapped defence systems.
+        </div>
+        <div class="card-links">
+          <a href="https://drive.google.com/file/d/1S2LFCNl3lMZzfJE1oxqQFOokDUaMXzWk/view?usp=drive_link">Certificate</a>
+        </div>
+      </div>
+    </div>
 
-                <!-- Research Notes & Blog -->
-        <table width="100%" align="center" border="0" cellspacing="0" cellpadding="20"><tbody>
-          <tr>
-            <td>
-              <h2 id="blog">Research Notes & Reflections</h2>
-            </td>
-          </tr>
-        </tbody></table>
+    <div class="card">
+      <img class="card-thumb" src="images/webtiga.png" alt="Synergetics" onerror="this.style.display='none'">
+      <div class="card-body">
+        <div class="card-title">
+          <a href="#">WebTiga (renamed Synergetics.AI)</a>
+        </div>
+        <div class="card-meta"><strong>ML Engineering Intern</strong> · Feb 2024 – Jun 2024 · Bangalore</div>
+        <div class="card-desc">
+          Led the full ML lifecycle for a humanoid, speech-capable therapeutic agent. Engineered and deployed agentic workflows, RAG pipelines, guardrails, and context-aware chat with real-time client integration - reducing latency by 53%.
+        </div>
+        <div class="card-links">
+          <a href="https://drive.google.com/file/d/15I_K-Twv-OV2pmLRK0HBaDwup5Z8D6CZ/view?usp=drive_link">Certificate</a>
+        </div>
+      </div>
+    </div>
 
-        <table width="100%" align="center" border="0" cellpadding="20"><tbody>
-          <tr>
-            <td style="padding:20px;width:100%;vertical-align:top">
-              <p>
-                I've written a few blogs previously on technical learning, self-growth, introspection, and reflection during my first year in university on my 
-                <a href="https://medium.com/@yoswal071">medium</a>.<br>
-                I'm planning on starting blogs to reflect how my thinking has evolved through research, mentorship, and applied work.
-              </p>
+    <div class="card">
+      <img class="card-thumb" src="images/uoa.png" alt="UoA" onerror="this.style.display='none'">
+      <div class="card-body">
+        <div class="card-title">
+          <a href="https://www.auckland.ac.nz/">University of Auckland</a> &amp; <a href="https://www.getsignal.info/">Signal Corporation Ltd</a>
+        </div>
+        <div class="card-meta"><strong>Project Lead (Applied ML)</strong> · Jun 2023 – Aug 2023 · New Zealand</div>
+        <div class="card-desc">
+          Led an international applied ML team to resolve 5 real-world issues in Signal's threat intelligence system. Built scalable pipelines for NER, geocoding, and incremental clustering over live threat data streams for high-profile executive clients.
+        </div>
+        <div class="card-links">
+          <a href="https://drive.google.com/file/d/1LjsIWPzUAN4z10Zb_enO-hQEkUwhp73J/view?usp=drive_link">Certificate</a>
+        </div>
+      </div>
+    </div>
 
-              <ul>
-                <li>
-                  <a href="https://medium.com/@yoswal071/how-to-be-genuine-and-why-we-fear-it-part-i-aecbea574c2b">
-                    How To Be Genuine And Why We Fear It (First-year blog; nostalgia :) )
-                  </a>
-                  <br>
-                  <span style="font-size:small;color:gray">
-                    A reflective piece on authenticity, social fear, and emotional vulnerability during my first year of university.
-                    <br>
-                    Self-growth, Introspection, Early reflections - 2022
-                  </span>
-                </li>
+    <!-- ── Community ── -->
+    <h2><span class="section-num">05</span> Community &amp; Leadership</h2>
 
-                <li>
-                  <a href="https://medium.com/@yoswal071/our-greatest-treasure-our-parents-a66558162158">
-                    Our Greatest Treasure - Our Parents
-                  </a>
-                  <br>
-                  <span style="font-size:small;color:gray">
-                    A short-story containing article on my reflections and gratitude for my parents - inspired by a survey from Our World in Data.
-                    <br>
-                    Gratitude, Parents, Time - 2023
-                  </span>
-                </li>
+    <div class="card">
+      <img class="card-thumb" src="images/csivit.png" alt="CSI VIT" onerror="this.style.display='none'">
+      <div class="card-body">
+        <div class="card-title">
+          <a href="https://csivit.com/">Computer Society of India, VIT Student Chapter</a>
+        </div>
+        <div class="card-meta"><strong>Board Member &amp; Head of Research &amp; Development</strong> · 2023 – 2025</div>
+        <div class="card-desc">
+          Directed technical strategy and operations for a 100-member chapter. Mentored juniors in ML and research. Organised large-scale events: Rural ML Outreach (40+ rural students), Riddler (1000+ participants, 25+ countries), LaserTag (1000+), and Init ML workshops (200+). Intel Developer Spotlight feature for Rekindle.
+        </div>
+      </div>
+    </div>
 
-                <li>
-                  <a href="blog/rural-ml-outreach.html">
-                    Teaching Machine Learning Where GPUs Don’t Exist (Upcoming)
-                  </a>
-                  <br>
-                  <span style="font-size:small;color:gray">
-                    Lessons from running ML outreach in low-resource rural settings and how it reshaped my understanding of access and pedagogy.
-                    <br>
-                    Rural education, access, mentorship - 2024
-                  </span>
-                </li>
-              </ul>
-            </td>
-          </tr>
-        </tbody></table>
+    <!-- ── Projects ── -->
+    <h2><span class="section-num">06</span> Selected Projects</h2>
 
+    <div class="card">
+      <img class="card-thumb" src="images/rekindle.png" alt="Rekindle" onerror="this.style.display='none'">
+      <div class="card-body">
+        <div class="card-title">
+          <a href="https://github.com/Yug-Oswal/BOLT-Hackathon">Rekindle: AI Companion for Alzheimer's &amp; Dementia Care</a>
+        </div>
+        <div class="card-meta"><strong>Founder &amp; Lead Developer</strong> · 2nd place, Intel BOLT Hackathon · Intel Developer Spotlight</div>
+        <div class="card-desc">
+          End-to-end AI memory-support service for dementia patients: custom emotion-extraction model (outperforming baselines on Google GoEmotions), emotion-conditioned memory retrieval, local LLMs for privacy-preserving inference, and full-stack life-logging platform.
+        </div>
+        <div class="card-links">
+          <a href="https://rekindle-frontend.vercel.app/">Live Demo</a>
+          <a href="https://rekindle-lemon.vercel.app/">Refurbished Version</a>
+        </div>
+      </div>
+    </div>
 
-        <table width="100%" align="center" border="0" cellspacing="0" cellpadding="20"><tbody>
-          <tr>
-            <td>
-              <h2>Community & Leadership</h2>
-            </td>
-          </tr>
-        </tbody></table>
+    <!-- ── Blog ── -->
+    <h2 id="blog"><span class="section-num">07</span> Writing &amp; Blog</h2>
+    <ul class="blog-list">
+      <li>
+        <div class="blog-title">
+          <a href="https://medium.com/@yoswal071/how-to-be-genuine-and-why-we-fear-it-part-i-aecbea574c2b">How To Be Genuine And Why We Fear It</a>
+        </div>
+        <div class="blog-meta">Authenticity, social fear, and emotional vulnerability during my first year of university · 2022</div>
+      </li>
+      <li>
+        <div class="blog-title">
+          <a href="https://medium.com/@yoswal071/our-greatest-treasure-our-parents-a66558162158">Our Greatest Treasure — Our Parents</a>
+        </div>
+        <div class="blog-meta">Reflections and gratitude, inspired by a survey from Our World in Data · 2023</div>
+      </li>
+      <li>
+        <div class="blog-title">
+          <a href="blog/rural-ml-outreach.html">Teaching Machine Learning Where GPUs Don't Exist <em style="font-size:11px;color:var(--accent)">(upcoming)</em></a>
+        </div>
+        <div class="blog-meta">Lessons from running ML outreach in rural low-resource settings · 2024</div>
+      </li>
+    </ul>
 
-        <table width="100%" align="center" border="0" cellpadding="20"><tbody>
-					
-          <tr>
+    <footer>
+      <p>Yug D Oswal · <a href="mailto:yoswal071@gmail.com">yoswal071@gmail.com</a></p>
+      <p style="margin-top:6px;">Template adapted from <a href="https://github.com/jonbarron/jonbarron_website">Jon Barron's website</a>. Credits to <a href="https://claude.ai/">Claude</a> for visual redesign.</p>
+    </footer>
 
-            <td style="padding:20px;width:25%;vertical-align:middle">
-              <div class="one">
-                <img src='images/csivit.png' width="160">
-              </div>
-            </td>
-            <td style="padding:20px;width:75%;vertical-align:middle">
-              <a href="https://csivit.com/">
-                <papertitle>Computer Society of India, VIT Student Chapter</papertitle>
-              </a>
-              <br>
-              <strong>Board Member & Head of Research and Development</strong> &nbsp;|&nbsp; 2024 – Present
-              <p></p>
-              <p>
-                Lead the research and technical vertical of CSI-VIT, overseeing student research initiatives, mentorship programs,
-                and technical workshops. Mentor juniors in machine learning and applied research, curate long-term
-                research tracks, and actively shape the chapter’s academic and technical direction. Also coordinate
-                large-scale technical events and managerial operations.
-              </p>
-            </td>
-          </tr>
-
-        </tbody></table>
-
-                <!-- Projects -->
-        <table width="100%" align="center" border="0" cellspacing="0" cellpadding="20"><tbody>
-          <tr>
-            <td>
-              <h2>Selected Projects</h2>
-            </td>
-          </tr>
-        </tbody></table>
-
-        <table width="100%" align="center" border="0" cellpadding="20"><tbody>
-
-          <!-- Rekindle -->
-          <tr>
-            <td style="padding:20px;width:25%;vertical-align:middle">
-              <div class="one">
-                <img src='images/rekindle.png' width="160">
-              </div>
-            </td>
-            <td style="padding:20px;width:75%;vertical-align:middle">
-              <a href="https://github.com/Yug-Oswal/BOLT-Hackathon">
-                <papertitle>Rekindle, AI Companion for Alzheimer’s & Dementia Care</papertitle>
-              </a>
-              <br>
-              <strong>Founder & Lead Developer</strong>
-              <p></p>
-              <p>
-                Built an end-to-end AI service for Alzheimer’s and dementia patients enabling memory journaling,
-                emotion-conditioned retrieval, and conversational recall. Trained a custom emotion-extraction model
-                using a novel loss function from my research, deployed local LLMs for privacy-preserving inference,
-                and designed a full-stack life-logging platform with a patient-facing companion interface.
-                Currently under active redevelopment.
-                <br>
-                <a href="https://rekindle-frontend.vercel.app/">Live</a> &nbsp;/&nbsp;
-                <a href="https://rekindle-lemon.vercel.app/">Refurbished Version</a>
-              </p>
-            </td>
-          </tr>
-
-          <!-- LaserTag -->
-          <tr>
-            <td style="padding:20px;width:25%;vertical-align:middle">
-              <div class="one">
-                <img src='images/lasertag.png' width="160">
-              </div>
-            </td>
-            <td style="padding:20px;width:75%;vertical-align:middle">
-              <a href="https://github.com/Yug-Oswal/BOLT-Hackathon">
-                <papertitle>LaserTag, Large-Scale Event Backend Infrastructure</papertitle>
-              </a>
-              <br>
-              <strong>Backend & Systems Engineer</strong>
-              <p></p>
-              <p>
-                Independently designed and deployed the complete backend infrastructure for CSI’s flagship LaserTag
-                event during Gravitas, supporting 1000+ concurrent users. Built using Node.js, Redis, and MongoDB Atlas
-                with CI/CD integration. Implemented real-time matchmaking, authentication, and fault-tolerant event
-                orchestration under heavy peak loads.
-              </p>
-            </td>
-          </tr>
-
-        </tbody></table>
-
-        <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;"><tbody>
-          <tr>
-            <td style="padding:0px">
-              <br>
-              <p style="text-align:center;font-size:small;">
-                This website was produced from <a href="https://github.com/jonbarron/jonbarron_website">a template</a> made by Jon Barron.
-              </p>
-            </td>
-          </tr>
-        </tbody></table>
-      </td>
-    </tr>
-  </table>
+  </div>
 </body>
-
 </html>
